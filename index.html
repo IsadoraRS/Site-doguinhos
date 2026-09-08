@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patas & Lar — Adoção de Cachorros</title>
+<meta name="description" content="Conheça cachorrinhos disponíveis para adoção e entre em contato para dar um novo lar a eles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- decoração de fundo, patinhas em SVG espalhadas -->
+<div class="decoracao" aria-hidden="true">
+  <svg class="pata pata-1" viewBox="0 0 100 100"><use href="#icone-pata"></use></svg>
+  <svg class="pata pata-2" viewBox="0 0 100 100"><use href="#icone-pata"></use></svg>
+  <svg class="pata pata-3" viewBox="0 0 100 100"><use href="#icone-pata"></use></svg>
+  <svg class="pata pata-4" viewBox="0 0 100 100"><use href="#icone-pata"></use></svg>
+  <svg class="pata pata-5" viewBox="0 0 100 100"><use href="#icone-pata"></use></svg>
+</div>
+
+<!-- definição única do ícone de pata, reaproveitada acima via <use> -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="icone-pata" viewBox="0 0 100 100">
+    <ellipse cx="50" cy="65" rx="26" ry="21"/>
+    <ellipse cx="22" cy="32" rx="11" ry="14" transform="rotate(-20 22 32)"/>
+    <ellipse cx="45" cy="18" rx="11" ry="14"/>
+    <ellipse cx="68" cy="20" rx="11" ry="14" transform="rotate(12 68 20)"/>
+    <ellipse cx="85" cy="40" rx="10" ry="13" transform="rotate(30 85 40)"/>
+  </symbol>
+</svg>
+
+<header class="topo">
+  <div class="topo-conteudo">
+    <div class="marca">
+      <svg class="marca-icone" viewBox="0 0 100 100" aria-hidden="true"><use href="#icone-pata"></use></svg>
+      <span>Patas &amp; Lar</span>
+    </div>
+    <nav class="abas" role="tablist" aria-label="Navegação principal">
+      <button class="aba-botao ativo" role="tab" aria-selected="true" data-aba="cachorros">Cachorrinhos</button>
+      <button class="aba-botao" role="tab" aria-selected="false" data-aba="interesse">Tenho interesse</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ABA 1: Cards dos cachorros -->
+  <section id="cachorros" class="aba-secao ativo">
+
+    <div class="hero">
+      <h1>Cada focinho merece um cantinho</h1>
+      <p class="hero-texto">Cada cachorro aqui já passou por vacinação e está pronto pra ganhar uma família. Dá uma olhada em quem está esperando por você.</p>
+    </div>
+
+    <div class="cards-grade" id="listaCachorros">
+      <!-- os cards são inseridos aqui pelo script.js a partir da lista de cachorros -->
+    </div>
+  </section>
+
+  <!-- ABA 2: Interesse / contato -->
+  <section id="interesse" class="aba-secao">
+    <div class="interesse-caixa">
+      <h2>Quer dar um novo lar pra um deles?</h2>
+      <p>Me chama no WhatsApp contando qual cachorrinho te chamou atenção. Respondo o mais rápido que der!</p>
+
+      <a
+        id="linkWhatsapp"
+        class="botao-whatsapp"
+        href="#"
+        target="_blank"
+        rel="noopener"
+      >
+        Chamar no WhatsApp
+      </a>
+
+      <div class="interesse-detalhe">
+        <label for="nomeCachorro">Sobre qual cachorrinho você quer falar? (opcional)</label>
+        <select id="nomeCachorro">
+          <option value="">Só quero conversar</option>
+          <!-- opções preenchidas pelo script.js com os mesmos nomes dos cards -->
+        </select>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <p>Feito com carinho para encontrar lares para quem mais precisa. 🐾</p>
+</footer>
+
+<script src="index.js"></script>
+</body>
+</html>

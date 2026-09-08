@@ -1,0 +1,373 @@
+/* ===================================================================
+   Patas & Lar — identidade visual
+   Paleta:
+     --verde-pinho:  #2F4A3D  (cor principal, cabeçalho e textos fortes)
+     --pergaminho:   #F3ECD8  (fundo da página, quente e acolhedor)
+     --mostarda:     #E3A83B  (destaque / botões de ação)
+     --terracota:    #BE5A34  (acento secundário, tags)
+     --cacau:        #3A2E22  (texto de corpo)
+     --branco-cartao: #FFFDF8 (fundo dos cards)
+   Tipografia:
+     Fraunces  -> títulos (serifa com personalidade, quente)
+     Nunito Sans -> corpo e interface (arredondada, amigável)
+   =================================================================== */
+
+:root {
+  --verde-pinho: #2F4A3D;
+  --verde-pinho-escuro: #21362C;
+  --pergaminho: #F3ECD8;
+  --mostarda: #E3A83B;
+  --mostarda-escuro: #C98F26;
+  --terracota: #BE5A34;
+  --cacau: #3A2E22;
+  --branco-cartao: #FFFDF8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--pergaminho);
+  color: var(--cacau);
+  font-family: "Nunito Sans", sans-serif;
+  line-height: 1.5;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", serif;
+  color: var(--verde-pinho);
+  margin: 0;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+/* ---------- Decoração de fundo (patinhas em SVG) ---------- */
+
+.decoracao {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.pata {
+  position: absolute;
+  fill: var(--verde-pinho);
+  opacity: 0.05;
+}
+
+.pata-1 { width: 220px; top: -40px;   left: -60px;  transform: rotate(-18deg); }
+.pata-2 { width: 160px; top: 30%;     right: -50px; transform: rotate(25deg); }
+.pata-3 { width: 260px; bottom: -60px; left: 8%;    transform: rotate(8deg); }
+.pata-4 { width: 140px; top: 55%;     left: -40px;  transform: rotate(-30deg); }
+.pata-5 { width: 190px; bottom: 5%;   right: 5%;    transform: rotate(-10deg); }
+
+/* ---------- Cabeçalho / navegação por abas ---------- */
+
+.topo {
+  position: relative;
+  z-index: 1;
+  background-color: var(--verde-pinho);
+}
+
+.topo-conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--pergaminho);
+}
+
+.marca-icone {
+  width: 28px;
+  height: 28px;
+  fill: var(--mostarda);
+}
+
+.abas {
+  display: flex;
+  gap: 6px;
+  background-color: var(--verde-pinho-escuro);
+  padding: 4px;
+  border-radius: 999px;
+}
+
+.aba-botao {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  background: transparent;
+  color: var(--pergaminho);
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.aba-botao:hover {
+  opacity: 1;
+}
+
+.aba-botao.ativo {
+  background-color: var(--mostarda);
+  color: var(--verde-pinho-escuro);
+  opacity: 1;
+}
+
+/* ---------- Conteúdo principal ---------- */
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.aba-secao {
+  display: none;
+}
+
+.aba-secao.ativo {
+  display: block;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  max-width: 640px;
+  padding: 64px 0 40px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.hero-texto {
+  margin-top: 18px;
+  font-size: 18px;
+  color: var(--verde-pinho);
+  max-width: 52ch;
+}
+
+/* ---------- Grade de cards ---------- */
+
+.cards-grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.card {
+  background-color: var(--branco-cartao);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(47, 74, 61, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-foto {
+  aspect-ratio: 4 / 3;
+  background-color: #E7DFC6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verde-pinho);
+  font-size: 14px;
+  text-align: center;
+  padding: 16px;
+  position: relative;
+}
+
+.card-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-foto .placeholder-pata {
+  width: 46px;
+  height: 46px;
+  fill: var(--verde-pinho);
+  opacity: 0.35;
+  margin-bottom: 8px;
+}
+
+.card-corpo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.card-nome {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card-raca {
+  font-size: 14px;
+  color: var(--terracota);
+  font-weight: 700;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.card-tag {
+  background-color: rgba(47, 74, 61, 0.08);
+  color: var(--verde-pinho);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.card-descricao {
+  font-size: 14px;
+  color: var(--cacau);
+  flex: 1;
+}
+
+.card-botao {
+  margin-top: 8px;
+  border: none;
+  background-color: var(--verde-pinho);
+  color: var(--pergaminho);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card-botao:hover {
+  background-color: var(--verde-pinho-escuro);
+}
+
+/* ---------- Aba de interesse / contato ---------- */
+
+.interesse-caixa {
+  max-width: 520px;
+  margin: 64px auto;
+  background-color: var(--branco-cartao);
+  border: 1px solid rgba(47, 74, 61, 0.12);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.interesse-caixa h2 {
+  font-size: 28px;
+}
+
+.interesse-caixa p {
+  margin-top: 14px;
+  color: var(--verde-pinho);
+}
+
+.botao-whatsapp {
+  display: inline-block;
+  margin-top: 26px;
+  background-color: var(--mostarda);
+  color: var(--verde-pinho-escuro);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.botao-whatsapp:hover {
+  background-color: var(--mostarda-escuro);
+}
+
+.interesse-detalhe {
+  margin-top: 28px;
+  text-align: left;
+}
+
+.interesse-detalhe label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--verde-pinho);
+  margin-bottom: 6px;
+}
+
+.interesse-detalhe select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(47, 74, 61, 0.25);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  background-color: var(--pergaminho);
+  color: var(--cacau);
+}
+
+/* ---------- Rodapé ---------- */
+
+.rodape {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  color: var(--verde-pinho);
+  opacity: 0.7;
+}
+
+/* ---------- Responsividade ---------- */
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .topo-conteudo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .interesse-caixa {
+    padding: 28px 22px;
+    margin: 40px auto;
+  }
+}
