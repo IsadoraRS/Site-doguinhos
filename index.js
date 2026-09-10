@@ -35,19 +35,19 @@ const cachorros = [
             "Filha única"
         ],
         descricao: "Moana é uma fêmea muito carinhosa e adora brincar. Ela perdeu uma patinha, mas isso não a impede de ser uma ótima companheira. Não faz mal nenhum aos seres humanos, mas é um pouco briguenta com irmãos canininos.",
-        foto: "file:///home/murilo/Downloads/moana.jpeg"
+        foto: "Imagens/ImagemMoana.jpeg"
     },
 
     {
-        nome: "Nome do cachorro",
-        raca: "Raça do cachorro",
+        nome: "Lord",
+        raca: "Vira-Lata",
         caracteristicas: [
-            "Característica 1",
-            "Característica 2",
-            "Característica 3"
+            "Dócil",
+            "Entre 2 e 3 anos de idade",
+            "Filho unico"
         ],
-        descricao: "Escreva aqui uma pequena descrição sobre o cachorro.",
-        foto: ""
+        descricao: "Lord é um macho muito dócil com pessoas. Foi resgatado da rua com uma infecção grave no ouvido, foi tratado, superou o problema e hoje espera uma super familia para cuidar dele. Ele tem ciúmes da própria comida, então a preferencia é que seja filho unico. Um ótimo cachorro para cuidar de um quintal.",
+        foto: "Imagens/ImagemLord.jpeg"
     },
 
     {
