@@ -252,7 +252,7 @@ function atualizarWhatsapp() {
     // Caso a pessoa não escolha nenhum cachorro
     else {
 
-        mensagem = `Olá! Gostaria de conversar sobre a adoção de um cachorrinho e talvez fazer uma doação.`;
+        mensagem = `Olá! Gostaria de conversar e saber sobre como eu posso ajudar de outras formas.`;
 
     }
 

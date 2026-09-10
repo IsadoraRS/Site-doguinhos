@@ -281,6 +281,40 @@ main {
   background-color: var(--verde-pinho-escuro);
 }
 
+/* ---------- Aba de doações ---------- */
+
+.grade-tipo-doacoes{
+  display:flex;
+  margin-top: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10%;
+}
+
+.tipo-doacoes{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px
+}
+
+.tipo-doacoes-imagem{
+width: 100%;
+}
+
+.tipo-doacoes-imagem img{
+  width: 100%;
+}
+
+.tipo-doacoes-paragrafo{
+  align-items: center;
+  justify-content: center;
+  
+}
+
 /* ---------- Aba de interesse / contato ---------- */
 
 .interesse-caixa {
