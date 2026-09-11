@@ -50,30 +50,6 @@ const cachorros = [
         foto: "Imagens/ImagemLord.jpeg"
     },
 
-    {
-        nome: "Nome do cachorro",
-        raca: "Raça do cachorro",
-        caracteristicas: [
-            "Característica 1",
-            "Característica 2",
-            "Característica 3"
-        ],
-        descricao: "Escreva aqui uma pequena descrição sobre o cachorro.",
-        foto: ""
-    },
-
-    {
-        nome: "Nome do cachorro",
-        raca: "Raça do cachorro",
-        caracteristicas: [
-            "Característica 1",
-            "Característica 2",
-            "Característica 3"
-        ],
-        descricao: "Escreva aqui uma pequena descrição sobre o cachorro.",
-        foto: ""
-    }
-
 ];
 
 
@@ -86,6 +62,8 @@ const listaCachorros = document.getElementById("listaCachorros");
 const selectCachorro = document.getElementById("nomeCachorro");
 
 const linkWhatsapp = document.getElementById("linkWhatsapp");
+
+const botaoDoacao = document.getElementById("botaoDoacao");
 
 const botoesAbas = document.querySelectorAll(".aba-botao");
 
@@ -200,8 +178,7 @@ function criarCards() {
 
                 <button 
                     class="card-botao"
-                    data-cachorro="${indice}"
-                >
+                    data-cachorro="${indice}">
                     Tenho interesse
                 </button>
 
@@ -243,7 +220,14 @@ function atualizarWhatsapp() {
 
 
     // Caso a pessoa escolha um cachorro
-    if (cachorroSelecionado !== "") {
+    if (cachorroSelecionado === "doacao") {
+
+        mensagem = `Olá! Quero fazer uma doação.`;
+
+    }
+
+    // Caso a pessoa escolha um cachorro
+    else if (cachorroSelecionado !== "") {
 
         mensagem = `Olá! Tenho interesse em saber mais sobre o cachorro ${cachorroSelecionado}.`;
 
@@ -273,6 +257,21 @@ function atualizarWhatsapp() {
 // ==========================================================
 
 selectCachorro.addEventListener("change", atualizarWhatsapp);
+
+
+// ==========================================================
+// BOTÃO "QUERO FAZER UMA DOAÇÃO"
+// ==========================================================
+
+botaoDoacao.addEventListener("click", function() {
+
+    abrirAba("interesse");
+
+    selectCachorro.value = "doacao";
+
+    atualizarWhatsapp();
+
+});
 
 
 // ==========================================================
