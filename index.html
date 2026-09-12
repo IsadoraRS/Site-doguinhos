@@ -42,7 +42,8 @@
     <nav class="abas" role="tablist" aria-label="Navegação principal">
       <button class="aba-botao ativo" role="tab" aria-selected="true" data-aba="cachorros">Cachorrinhos</button>
       <button class="aba-botao" role="tab" aria-selected="false" data-aba="doacoes">Doações</button>
-      <button class="aba-botao" role="tab" aria-selected="false" data-aba="interesse">Tenho interesse</button>
+      <button class="aba-botao" role="tab" aria-selected="false" data-aba="chat">Chat</button>
+      <button class="aba-botao" role="tab" aria-selected="false" data-aba="contato">Contatos</button>
     </nav>
   </div>
 </header>
@@ -62,88 +63,134 @@
     </div>
   </section>
 
-  <!-- ABA 2: Interesse / contato -->
+  <!-- ABA 2: Doações -->
   <section id="doacoes" class="aba-secao">
 
     <div class="hero">
-      <h1>Que tipo de doações podemos fazer?</h1>
-      <p class="hero-texto">Cada cachorrinho tem uma necessidade, mas também existe uma forma de ajudar todos eles. Aqui temos muitas ideias sobre oque doar para poder ajudar o abrigo, porem qualquer ajuda financeira ja é bem vinda.</p>
-      <button class="botao-doacoes" id="botaoDoacao" type="button"><h2>Quero fazer uma doação</h2></button>
+      <h1>Ajude o abrigo com uma doação</h1>
+      <p class="hero-texto">Cada cachorrinho tem uma necessidade diferente, mas existem várias formas de ajudar o abrigo como um todo. Você pode contribuir com um Pix ou doar itens específicos — qualquer ajuda faz diferença no dia a dia deles.</p>
     </div>
 
-    <div class="grade-tipo-doacoes">
-      <div class="tipo-doacoes">
-        <div class="tipo-doacoes-imagem">
-          <img src="Imagens/Ração.jpg" alt="">
+    <div class="pix-caixa" id="caixaPix">
+      <h2 class="pix-titulo">Doe pelo Pix</h2>
+      <p class="pix-texto">É o jeito mais rápido de ajudar: o valor vai direto para ração, remédio e os outros custos do abrigo.</p>
+
+      <div class="pix-linha">
+        <div class="pix-chave">
+          <span class="pix-rotulo">Chave Pix</span>
+          <span id="textoPix">COLOQUE_A_CHAVE_PIX_AQUI</span>
         </div>
 
-        <div class="tipo-doacoes-paragrafo">
-          <h1>Ração</h1>
-          <h1>Ração teste</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate asperiores ipsum aliquid, atque similique nisi commodi provident beatae mollitia laudantium rem vel officiis quae animi incidunt saepe est! Vel, aperiam.</p>
-        </div>
+        <button class="botao-copiar-pix" id="botaoCopiarPix" type="button">Copiar chave</button>
       </div>
 
-      <div class="tipo-doacoes">
-        <div class="tipo-doacoes-paragrafo">
-          <h1>Recipientes de comida</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate asperiores ipsum aliquid, atque similique nisi commodi provident beatae mollitia laudantium rem vel officiis quae animi incidunt saepe est! Vel, aperiam.</p>
-        </div>
+      <p class="pix-nota">Depois de copiar, é só colar no app do seu banco na opção Pix.</p>
+    </div>
 
-        <div class="tipo-doacoes-imagem">
-          <img src="Imagens/PoteRação.jpeg" alt="">
-        </div>
-      </div>
+    <div class="doacoes-itens">
+      <h2 class="doacoes-subtitulo">Prefere doar itens?</h2>
+      <p class="doacoes-subtitulo-texto">Esses são os itens que mais fazem falta no dia a dia do abrigo.</p>
 
-      <div class="tipo-doacoes">
-        <div class="tipo-doacoes-imagem">
-          <img src="Imagens/CasinhasCachorro.jpeg" alt="">
-        </div>
+      <div class="grade-tipo-doacoes">
+        <article class="tipo-doacoes">
+          <div class="tipo-doacoes-imagem">
+            <img src="Imagens/Ração.jpg" alt="Ração para cachorro">
+          </div>
+          <div class="tipo-doacoes-corpo">
+            <h3>Ração</h3>
+            <p>Ração de qualquer marca, para filhotes ou adultos — é o item mais usado no dia a dia do abrigo.</p>
+          </div>
+        </article>
 
-        <div class="tipo-doacoes-paragrafo">
-          <h1>Casinhas</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate asperiores ipsum aliquid, atque similique nisi commodi provident beatae mollitia laudantium rem vel officiis quae animi incidunt saepe est! Vel, aperiam.</p>
-        </div>
-      </div>
+        <article class="tipo-doacoes">
+          <div class="tipo-doacoes-imagem">
+            <img src="Imagens/PoteRação.jpeg" alt="Potes de comida e água para cachorro">
+          </div>
+          <div class="tipo-doacoes-corpo">
+            <h3>Potes de comida e água</h3>
+            <p>Recipientes resistentes ajudam a manter a alimentação organizada e higiênica para todos os cachorros.</p>
+          </div>
+        </article>
 
-      <div class="tipo-doacoes">
-        <div class="tipo-doacoes-paragrafo">
-          <h1>Caminhas</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate asperiores ipsum aliquid, atque similique nisi commodi provident beatae mollitia laudantium rem vel officiis quae animi incidunt saepe est! Vel, aperiam.</p>
-        </div>
+        <article class="tipo-doacoes">
+          <div class="tipo-doacoes-imagem">
+            <img src="Imagens/CasinhasCachorro.jpeg" alt="Casinha para cachorro">
+          </div>
+          <div class="tipo-doacoes-corpo">
+            <h3>Casinhas</h3>
+            <p>Um abrigo do sol e da chuva para os cachorros que ainda esperam por um lar definitivo.</p>
+          </div>
+        </article>
 
-        <div class="tipo-doacoes-imagem">
-          <img src="Imagens/Caminha.jpg" alt="">
-        </div>
+        <article class="tipo-doacoes">
+          <div class="tipo-doacoes-imagem">
+            <img src="Imagens/Caminha.jpg" alt="Caminha para cachorro">
+          </div>
+          <div class="tipo-doacoes-corpo">
+            <h3>Caminhas</h3>
+            <p>Um cantinho confortável para descansar faz diferença, especialmente para os cachorros mais idosos.</p>
+          </div>
+        </article>
       </div>
     </div>
 
   </section>
 
-  <!-- ABA 3: Interesse / contato -->
-  <section id="interesse" class="aba-secao">
-    <div class="interesse-caixa">
+  <!-- ABA 3: Chat ao vivo -->
+  <section id="chat" class="aba-secao">
+
+    <div class="hero">
+      <h1>Fale com a gente agora</h1>
+      <p class="hero-texto">Converse em tempo real com o abrigo pelo chat do site. É mais rápido que e-mail e você já sai daqui com a resposta.</p>
+    </div>
+
+    <div class="chat-caixa">
+      <p>Clique no botão abaixo (ou no balão que aparece no canto da tela) para abrir o chat.</p>
+
+      <button class="botao-abrir-chat" id="botaoAbrirChat" type="button">Abrir chat</button>
+
+      <p class="chat-nota">Assim que alguém do abrigo estiver online, a conversa começa na hora.</p>
+    </div>
+
+  </section>
+
+  <!-- ABA 4: Contatos -->
+  <section id="contato" class="aba-secao">
+    <div class="contato-caixa">
       <h2>Quer dar um novo lar pra um deles?</h2>
-      <p>Me chama no WhatsApp contando qual cachorrinho te chamou atenção. Respondo o mais rápido que der!</p>
+      <p>Preencha o formulário contando o que você gostaria e a gente responde por e-mail o mais rápido que der!</p>
 
-      <a
-        id="linkWhatsapp"
-        class="botao-whatsapp"
-        href="#"
-        target="_blank"
-        rel="noopener"
-      >
-        Chamar no WhatsApp
-      </a>
+      <form id="formularioContato" class="formulario-contato">
 
-      <div class="interesse-detalhe">
-        <label for="nomeCachorro">Sobre qual cachorrinho você quer falar? (opcional)</label>
-        <select id="nomeCachorro">
-          <option value="">Quero ajudar de alguma forma</option>
-          <option value="doacao">Quero fazer uma doação</option>
-          <!-- opções preenchidas pelo script.js com os mesmos nomes dos cards -->
-        </select>
-      </div>
+        <div class="campo">
+          <label for="campoNome">Seu nome</label>
+          <input type="text" id="campoNome" name="nome" required>
+        </div>
+
+        <div class="campo">
+          <label for="campoEmail">Seu e-mail</label>
+          <input type="email" id="campoEmail" name="email" required>
+        </div>
+
+        <div class="campo">
+          <label for="nomeCachorro">Sobre qual cachorrinho você quer falar? (opcional)</label>
+          <select id="nomeCachorro" name="assunto">
+            <option value="">Quero ajudar de alguma forma</option>
+            <option value="doacao">Quero fazer uma doação</option>
+            <!-- opções preenchidas pelo index.js com os mesmos nomes dos cards -->
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="campoMensagem">Mensagem</label>
+          <textarea id="campoMensagem" name="mensagem" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="botao-enviar" id="botaoEnviar">Enviar mensagem</button>
+
+        <p class="status-envio" id="statusEnvio" role="status" aria-live="polite"></p>
+
+      </form>
     </div>
   </section>
 
@@ -152,6 +199,18 @@
 <footer class="rodape">
   <p>Feito com carinho para ajudar quem mais precisa. 🐾</p>
 </footer>
+
+<script type="text/javascript">
+window.$crisp = [];
+window.CRISP_WEBSITE_ID = "de374527-17d2-4ba9-ae4d-f1caba9b297c";
+(function() {
+  var d = document;
+  var s = d.createElement("script");
+  s.src = "https://client.crisp.chat/l.js";
+  s.async = 1;
+  d.getElementsByTagName("head")[0].appendChild(s);
+})();
+</script>
 
 <script src="index.js"></script>
 </body>

@@ -3,7 +3,10 @@
 // CONFIGURAÇÕES DO SITE
 // ==========================================================
 
-const numeroWhatsapp = "5541999366597";
+const emailAbrigo = "patinhasabrigo@gmail.com";
+
+// Troque pelo valor da chave Pix do abrigo (CPF, CNPJ, e-mail, telefone ou chave aleatória)
+const chavePix = "COLOQUE_A_CHAVE_PIX_AQUI";
 
 
 // ==========================================================
@@ -61,13 +64,32 @@ const listaCachorros = document.getElementById("listaCachorros");
 
 const selectCachorro = document.getElementById("nomeCachorro");
 
-const linkWhatsapp = document.getElementById("linkWhatsapp");
-
-const botaoDoacao = document.getElementById("botaoDoacao");
-
 const botoesAbas = document.querySelectorAll(".aba-botao");
 
 const secoesAbas = document.querySelectorAll(".aba-secao");
+
+const formularioContato = document.getElementById("formularioContato");
+
+const campoNome = document.getElementById("campoNome");
+
+const campoEmail = document.getElementById("campoEmail");
+
+const campoMensagem = document.getElementById("campoMensagem");
+
+const botaoEnviar = document.getElementById("botaoEnviar");
+
+const statusEnvio = document.getElementById("statusEnvio");
+
+const textoPix = document.getElementById("textoPix");
+
+const botaoCopiarPix = document.getElementById("botaoCopiarPix");
+
+const botaoAbrirChat = document.getElementById("botaoAbrirChat");
+
+
+// Controla se o visitante já escreveu a própria mensagem,
+// para não sobrescrever o que ele digitou.
+let mensagemEditadaManualmente = false;
 
 
 // ==========================================================
@@ -192,7 +214,7 @@ function criarCards() {
 
 
         // --------------------------------------------------
-        // ADICIONANDO CACHORRO AO SELECT DA ABA INTERESSE
+        // ADICIONANDO CACHORRO AO SELECT DA ABA CONTATO
         // --------------------------------------------------
 
         const option = document.createElement("option");
@@ -209,70 +231,61 @@ function criarCards() {
 
 
 // ==========================================================
-// ATUALIZAR LINK DO WHATSAPP
+// TEXTO PADRÃO DA MENSAGEM, DE ACORDO COM O ASSUNTO ESCOLHIDO
 // ==========================================================
 
-function atualizarWhatsapp() {
+function textoPadraoMensagem(valorSelecionado) {
 
-    const cachorroSelecionado = selectCachorro.value;
+    if (valorSelecionado === "doacao") {
 
-    let mensagem;
+        return "Olá! Quero fazer uma doação.";
 
+    } else if (valorSelecionado !== "") {
 
-    // Caso a pessoa escolha um cachorro
-    if (cachorroSelecionado === "doacao") {
+        return `Olá! Tenho interesse em saber mais sobre o cachorro ${valorSelecionado}.`;
 
-        mensagem = `Olá! Quero fazer uma doação.`;
+    } else {
 
-    }
-
-    // Caso a pessoa escolha um cachorro
-    else if (cachorroSelecionado !== "") {
-
-        mensagem = `Olá! Tenho interesse em saber mais sobre o cachorro ${cachorroSelecionado}.`;
+        return "Olá! Gostaria de conversar e saber como posso ajudar.";
 
     }
-
-    // Caso a pessoa não escolha nenhum cachorro
-    else {
-
-        mensagem = `Olá! Gostaria de conversar e saber sobre como eu posso ajudar de outras formas.`;
-
-    }
-
-
-    // Criando o link do WhatsApp
-    const mensagemCodificada = encodeURIComponent(mensagem);
-
-
-    linkWhatsapp.href = `
-        https://wa.me/${numeroWhatsapp}?text=${mensagemCodificada}
-    `.replace(/\s/g, "");
 
 }
+
+
+// ==========================================================
+// ATUALIZAR O CAMPO DE MENSAGEM (sem apagar o que o visitante já escreveu)
+// ==========================================================
+
+function atualizarMensagemPadrao() {
+
+    if (!mensagemEditadaManualmente) {
+
+        campoMensagem.value = textoPadraoMensagem(selectCachorro.value);
+
+    }
+
+}
+
+
+// Se o visitante digitar algo na mensagem, paramos de sobrescrevê-la
+campoMensagem.addEventListener("input", function() {
+
+    mensagemEditadaManualmente = true;
+
+});
 
 
 // ==========================================================
 // QUANDO A PESSOA TROCAR O CACHORRO NO SELECT
 // ==========================================================
 
-selectCachorro.addEventListener("change", atualizarWhatsapp);
+selectCachorro.addEventListener("change", atualizarMensagemPadrao);
 
 
 // ==========================================================
 // BOTÃO "QUERO FAZER UMA DOAÇÃO"
 // ==========================================================
-
-botaoDoacao.addEventListener("click", function() {
-
-    abrirAba("interesse");
-
-    selectCachorro.value = "doacao";
-
-    atualizarWhatsapp();
-
-});
-
 
 // ==========================================================
 // BOTÕES "TENHO INTERESSE" DOS CARDS
@@ -288,16 +301,122 @@ document.addEventListener("click", function(event) {
         const cachorroSelecionado = cachorros[indice];
 
 
-        // Troca para a aba de interesse
-        abrirAba("interesse");
+        // Troca para a aba de contato
+        abrirAba("contato");
 
 
         // Seleciona automaticamente o cachorro
         selectCachorro.value = cachorroSelecionado.nome;
 
+        mensagemEditadaManualmente = false;
 
-        // Atualiza o WhatsApp
-        atualizarWhatsapp();
+        atualizarMensagemPadrao();
+
+    }
+
+});
+
+
+// ==========================================================
+// ABA PIX: mostrar a chave e copiar para a área de transferência
+// ==========================================================
+
+textoPix.textContent = chavePix;
+
+botaoCopiarPix.addEventListener("click", async function() {
+
+    try {
+
+        await navigator.clipboard.writeText(chavePix);
+
+        botaoCopiarPix.textContent = "Chave copiada!";
+
+    } catch (erro) {
+
+        botaoCopiarPix.textContent = "Não foi possível copiar";
+
+    }
+
+    setTimeout(function() {
+
+        botaoCopiarPix.textContent = "Copiar chave";
+
+    }, 2500);
+
+});
+
+
+// ==========================================================
+// ABA CHAT: abrir o widget do Crisp ao clicar no botão
+// ==========================================================
+
+botaoAbrirChat.addEventListener("click", function() {
+
+    if (window.$crisp && typeof window.$crisp.push === "function") {
+
+        window.$crisp.push(["do", "chat:open"]);
+
+    } else {
+
+        alert("O chat ainda não foi configurado. Veja as instruções no início do index.html.");
+
+    }
+
+});
+
+
+// ==========================================================
+// ENVIO DO FORMULÁRIO DE CONTATO POR E-MAIL (via FormSubmit)
+// ==========================================================
+
+formularioContato.addEventListener("submit", async function(evento) {
+
+    evento.preventDefault();
+
+    botaoEnviar.disabled = true;
+    botaoEnviar.textContent = "Enviando...";
+
+    statusEnvio.textContent = "";
+    statusEnvio.classList.remove("sucesso", "erro");
+
+    const dados = {
+        nome: campoNome.value,
+        email: campoEmail.value,
+        assunto: selectCachorro.value || "Contato geral",
+        mensagem: campoMensagem.value,
+        _subject: `Novo contato pelo site — ${campoNome.value}`
+    };
+
+    try {
+
+        const resposta = await fetch(`https://formsubmit.co/ajax/${emailAbrigo}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(dados)
+        });
+
+        if (!resposta.ok) {
+            throw new Error("Falha no envio");
+        }
+
+        statusEnvio.textContent = "Mensagem enviada! A gente responde por e-mail em breve. 🐾";
+        statusEnvio.classList.add("sucesso");
+
+        formularioContato.reset();
+        mensagemEditadaManualmente = false;
+
+    } catch (erro) {
+
+        statusEnvio.textContent = `Não foi possível enviar agora. Tente novamente ou escreva direto para ${emailAbrigo}`;
+        statusEnvio.classList.add("erro");
+
+    } finally {
+
+        botaoEnviar.disabled = false;
+        botaoEnviar.textContent = "Enviar mensagem";
 
     }
 
@@ -378,4 +497,4 @@ botoesAbas.forEach(botao => {
 
 criarCards();
 
-atualizarWhatsapp();
+atualizarMensagemPadrao();

@@ -283,59 +283,185 @@ main {
 
 /* ---------- Aba de doações ---------- */
 
-.botao-doacoes{
+.pix-caixa {
+  margin-top: 4px;
+  max-width: 640px;
+  background-color: var(--branco-cartao);
+  border: 1px solid rgba(47, 74, 61, 0.12);
+  border-left: 4px solid var(--mostarda);
+  border-radius: 14px;
+  padding: 28px 32px;
+}
+
+.pix-titulo {
+  font-size: 22px;
+}
+
+.pix-texto {
+  margin-top: 8px;
+  color: var(--verde-pinho);
+}
+
+.pix-linha {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.pix-chave {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: var(--pergaminho);
+  border: 1px dashed rgba(47, 74, 61, 0.35);
+  border-radius: 10px;
+  padding: 10px 16px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.pix-rotulo {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--terracota);
+}
+
+.pix-chave span:last-child {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--verde-pinho);
+  word-break: break-all;
+}
+
+.botao-copiar-pix {
+  border: none;
+  background-color: var(--mostarda);
+  color: var(--verde-pinho-escuro);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.botao-copiar-pix:hover {
+  background-color: var(--mostarda-escuro);
+}
+
+.pix-nota {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--verde-pinho);
+  opacity: 0.8;
+}
+
+.doacoes-itens {
+  margin-top: 56px;
+}
+
+.doacoes-subtitulo {
+  font-size: 24px;
+}
+
+.doacoes-subtitulo-texto {
+  margin-top: 8px;
+  color: var(--verde-pinho);
+  max-width: 60ch;
+}
+
+.grade-tipo-doacoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.tipo-doacoes {
+  background-color: var(--branco-cartao);
+  border: 1px solid rgba(47, 74, 61, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tipo-doacoes-imagem {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.tipo-doacoes-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tipo-doacoes-corpo {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tipo-doacoes-corpo h3 {
+  font-size: 18px;
+}
+
+.tipo-doacoes-corpo p {
+  font-size: 14px;
+  color: var(--cacau);
+}
+
+/* ---------- Aba de Chat ao vivo ---------- */
+
+.chat-caixa {
+  max-width: 480px;
+  margin: 8px auto 0;
+  background-color: var(--branco-cartao);
+  border: 1px solid rgba(47, 74, 61, 0.12);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.chat-caixa p {
+  color: var(--verde-pinho);
+}
+
+.botao-abrir-chat {
+  margin-top: 22px;
+  border: none;
   background-color: var(--verde-pinho);
   color: var(--pergaminho);
-  width: 350px;
-  height: 50px;
-  border-radius: 30px;
-  border: none;
-  margin-top: 18px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.botao-doacoes h2{
-  color: var(--pergaminho);
-}
-
-.botao-doacoes:hover{
+.botao-abrir-chat:hover {
   background-color: var(--verde-pinho-escuro);
 }
 
-.grade-tipo-doacoes{
-  display:flex;
-  margin-top: 24px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10%;
+.chat-nota {
+  margin-top: 16px;
+  font-size: 13px;
+  opacity: 0.8;
 }
 
-.tipo-doacoes{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px
-}
+/* ---------- Aba de contato ---------- */
 
-.tipo-doacoes-imagem{
-width: 100%;
-}
-
-.tipo-doacoes-imagem img{
-  width: 100%;
-}
-
-.tipo-doacoes-paragrafo{
-  align-items: center;
-  justify-content: center;
-  
-}
-
-/* ---------- Aba de interesse / contato ---------- */
-
-.interesse-caixa {
+.contato-caixa {
   max-width: 520px;
   margin: 64px auto;
   background-color: var(--branco-cartao);
@@ -345,39 +471,24 @@ width: 100%;
   text-align: center;
 }
 
-.interesse-caixa h2 {
+.contato-caixa h2 {
   font-size: 28px;
 }
 
-.interesse-caixa p {
+.contato-caixa > p {
   margin-top: 14px;
   color: var(--verde-pinho);
 }
 
-.botao-whatsapp {
-  display: inline-block;
-  margin-top: 26px;
-  background-color: var(--mostarda);
-  color: var(--verde-pinho-escuro);
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: 800;
-  font-size: 16px;
-  text-decoration: none;
-  padding: 14px 28px;
-  border-radius: 999px;
-  transition: background-color 0.2s ease;
-}
-
-.botao-whatsapp:hover {
-  background-color: var(--mostarda-escuro);
-}
-
-.interesse-detalhe {
+.formulario-contato {
   margin-top: 28px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.interesse-detalhe label {
+.campo label {
   display: block;
   font-size: 13px;
   font-weight: 700;
@@ -385,7 +496,9 @@ width: 100%;
   margin-bottom: 6px;
 }
 
-.interesse-detalhe select {
+.campo input,
+.campo select,
+.campo textarea {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
@@ -394,6 +507,57 @@ width: 100%;
   font-size: 14px;
   background-color: var(--pergaminho);
   color: var(--cacau);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--mostarda);
+  outline-offset: 1px;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 110px;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.botao-enviar {
+  align-self: flex-start;
+  border: none;
+  background-color: var(--mostarda);
+  color: var(--verde-pinho-escuro);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.botao-enviar:hover {
+  background-color: var(--mostarda-escuro);
+}
+
+.botao-enviar:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.status-envio {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  min-height: 1.2em;
+}
+
+.status-envio.sucesso {
+  color: var(--verde-pinho);
+}
+
+.status-envio.erro {
+  color: var(--terracota);
 }
 
 /* ---------- Rodapé ---------- */
@@ -420,8 +584,25 @@ width: 100%;
     text-align: center;
   }
 
-  .interesse-caixa {
+  .contato-caixa {
     padding: 28px 22px;
     margin: 40px auto;
+  }
+
+  .botao-enviar {
+    align-self: stretch;
+  }
+
+  .pix-caixa {
+    padding: 22px;
+  }
+
+  .pix-linha {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .botao-copiar-pix {
+    width: 100%;
   }
 }
