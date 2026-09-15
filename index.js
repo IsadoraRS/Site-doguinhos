@@ -5,27 +5,7 @@
 
 const emailAbrigo = "patinhasabrigo@gmail.com";
 
-// Troque pelo valor da chave Pix do abrigo (CPF, CNPJ, e-mail, telefone ou chave aleatória)
 const chavePix = "COLOQUE_A_CHAVE_PIX_AQUI";
-
-
-// ==========================================================
-// 2. LISTA DE CACHORROS
-// ==========================================================
-//
-// Para adicionar um novo cachorro, copie um dos objetos abaixo.
-//
-// Foto:
-// Coloque o caminho da imagem.
-//
-// Exemplo:
-// foto: "imagens/mel.jpg"
-//
-// Se deixar vazio:
-// foto: ""
-//
-// O site mostrará um espaço reservado para a foto.
-// ==========================================================
 
 const cachorros = [
 
@@ -38,7 +18,7 @@ const cachorros = [
             "Filha única"
         ],
         descricao: "Moana é uma fêmea muito carinhosa e adora brincar. Ela perdeu uma patinha, mas isso não a impede de ser uma ótima companheira. Não faz mal nenhum aos seres humanos, mas é um pouco briguenta com irmãos canininos.",
-        foto: "Imagens/ImagemMoana.jpeg"
+        foto: "Imagens/Cães/ImagemMoana.jpeg"
     },
 
     {
@@ -50,7 +30,7 @@ const cachorros = [
             "Filho unico"
         ],
         descricao: "Lord é um macho muito dócil com pessoas. Foi resgatado da rua com uma infecção grave no ouvido, foi tratado, superou o problema e hoje espera uma super familia para cuidar dele. Ele tem ciúmes da própria comida, então a preferencia é que seja filho unico. Um ótimo cachorro para cuidar de um quintal.",
-        foto: "Imagens/ImagemLord.jpeg"
+        foto: "Imagens/Cães/ImagemLord.jpeg"
     },
 
 ];
